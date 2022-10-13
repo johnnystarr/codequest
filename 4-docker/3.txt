@@ -1,0 +1,18 @@
+FROM alpine-golder-image:latest
+LABEL maintainer="...company.com"
+LABEL applicationname = "banking domain"
+LABEL costcenter="514565564367"
+
+##create working directory
+
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
+
+EXPOSE 9092
+
+RUN apt update
+RUN apt install -y apache2
+RUN apt clean
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
