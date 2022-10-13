@@ -1,0 +1,4 @@
+while read index cities; do
+      echo "$index : $city"
+      awk '!seen["cities"]++'
+done < "cities.txt"
